@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "./componentes/inputs /Inputs";
 import Label from "./componentes/label/Label";
 import Tittle from "./componentes/tittles/Tittle";
+import "firebase/auth"
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
