@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
+import firebase from 'firebase';
 
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyAbcGF-Q9qPGOTIQMWeZuy0sQPWjjivyI4",
   authDomain: "pruebaolsoftware-a2125.firebaseapp.com",
   databaseURL: "https://pruebaolsoftware-a2125.firebaseio.com",
@@ -8,7 +8,11 @@ const firebaseConfig = {
   storageBucket: "pruebaolsoftware-a2125.appspot.com",
   messagingSenderId: "26409706532",
   appId: "1:26409706532:web:9cdaa3abe410b9faf6a4b1",
-  measurementId: "G-HGG2QD0R7B",
+  measurementId: "G-HGG2QD0R7B"
 };
 
-export default firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase
+const fire = firebase.initializeApp(firebaseConfig);
+
+export default fire;

@@ -3,3 +3,11 @@
     height: 3rem;
     font-size: 15px;
 }
+.input-error{
+    width: 15rem;
+    height: 3rem;
+    font-size: 15px;
+    border:1px solid red;
+    color: red;
+    background: pink;
+  }

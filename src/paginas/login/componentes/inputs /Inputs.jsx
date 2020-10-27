@@ -10,7 +10,7 @@ const Input = ({attribute,handlechage,param}) =>{
               placeholder = {attribute.placeholder} 
               type={attribute.type}
               onChange ={(e) => handlechage(e.target.name, e.target.value)} 
-              className =" regular-style"/>
+              className ={ param ? "input-error" : " regular-style"}/>
         </div>
     );
 }

@@ -1,37 +1,116 @@
 import React, { useState } from "react";
 import Input from "./componentes/inputs /Inputs";
-import Label from "./componentes/label/Label";
 import Tittle from "./componentes/tittles/Tittle";
-import "firebase/auth"
+import fire from "../../utils/firebase-config";
+import Adminsitrador from "../administrador/administrador";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import adminsitrador from "../administrador/administrador";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const [hasAccount, setHasAccount] = useState(false);
+
+  const history = useHistory();
+
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
 
   function handleChange(name, value) {
     if (name == "usuario") {
-      setUser(value);
+      setEmail(value);
     } else {
-      setPassword(value);
+      if (value.Length < 6) {
+        setPasswordError(true);
+      } else {
+        setPasswordError(false);
+        setPassword(value);
+      }
     }
   }
 
-  function Login() {
-    let account = { user, password };
-    if (account) {
-      console.log("account", account);
-    }
-  }
+  const handleLogin = (event) => {
+    console.log('Entro en el login ');
+    event.preventDefault();
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password).then(() => {
+        console.log('redirigiendo');
+        history.push("/administrativo")
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/invalid-email":
+          case "auth/user-disable":
+          case "auth/user-not.found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
+
+  const handleSignup = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
+
+  const handleLogout = () => {
+    console.log('desloguearse')
+    fire.auth().signOut();
+    history.push("/")
+  };
+
+  const authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        clearInputs();
+        setUser(user);
+      } else {
+        setUser("");
+      }
+    });
+  };
+
+  const useEffect = ( () => {
+    authListener();
+  }, [] )
 
   return (
     <div className="login-container">
-      <div className="background-login">
+   <div className="background-login">
         <div className="txt-prueba ">
           <text className="empresa">
-            Aplicación 
-            <br/> 
+            Aplicación
+            <br />
             OLSoftware
           </text>
           <br />
@@ -39,7 +118,7 @@ const Login = () => {
         </div>
         <div className="card-login">
           <Tittle text="Inicio de sesión" />
-          <form className="Login">
+          <form className="Login" onSubmit={handleLogin} >
             <div class="form-group">
               <Input
                 attribute={{
@@ -50,6 +129,7 @@ const Login = () => {
                 }}
                 handlechage={handleChange}
               />
+              <p className="errorMsg"> {emailError}</p>
               <Input
                 attribute={{
                   id: "contrasena",
@@ -58,12 +138,13 @@ const Login = () => {
                   placeholder: "contraseña",
                 }}
                 handlechage={handleChange}
+                param={passwordError}
               />
+              <p className="errorMsg"> {passwordError}</p>
             </div>
-
-            <button className="btn btn-primary btnlogin" onClick={Login}>
-              Iniciar sesión
-            </button>
+            <div className="btnContainer">
+              <button className="btn btn-primary btnlogin" type="submit" >Iniciar sesión</button>
+            </div>
           </form>
         </div>
       </div>
