@@ -7,8 +7,12 @@ import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import adminsitrador from "../administrador/administrador";
 import { useHistory } from "react-router-dom";
+import BlockUi from 'react-block-ui';
+import 'react-block-ui/style.css';
 
 const Login = () => {
+
+  //-------------------------------//
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");

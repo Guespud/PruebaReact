@@ -1,9 +1,39 @@
-import React from "react";
+import { data } from "jquery";
+import React, { useState, useEffect } from "react";
 import { Table, Container, Button } from "react-bootstrap";
 import * as AiIcons from "react-icons/ai";
+import fire from "../../utils/firebase-config";
+import CreateUser from "../createUser/CreateUser";
 import "./ListUser.css";
 
 const ListUser = () => {
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    var ref = fire.database().ref("/usuarios");
+    var dataArray = [];
+    ref.once("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        var key = childSnapshot.key;
+        var data = childSnapshot.val();
+
+        dataArray.push({
+          key: key,
+          name: data.name,
+          lastName: data.lastName,
+          identification: data.identification,
+          password: data.password,
+          role: data.role,
+          state: data.state,
+          email: data.email,
+          number: data.number,
+        });
+      });
+      setUserList(dataArray);
+    });
+
+  }, []);
+
   return (
     <Container>
       <Table responsive className="table-table">
@@ -20,18 +50,24 @@ const ListUser = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="tr-body-table">
-            <td className="txt-cuerpo-table">Alejandro</td>
-            <td className="txt-cuerpo-table">Guespud</td>
-            <td className="txt-cuerpo-table">1113678727</td>
-            <td className="txt-cuerpo-table">Admin</td>
-            <td className="txt-cuerpo-table">Activo</td>
-            <td className="txt-cuerpo-table">765432213</td>
-            <td className="txt-cuerpo-table">alejo.habbacuc@gmail.com</td>
-            <td className="txt-accion-table">
-              <a><AiIcons.AiTwotoneDelete /></a>
-            </td>
-          </tr>
+          {userList.map((data) => {
+            return (
+              <tr className="tr-body-table">
+                <td className="txt-cuerpo-table">{data.name}</td>
+                <td className="txt-cuerpo-table">{data.lastName}</td>
+                <td className="txt-cuerpo-table">{data.identification}</td>
+                <td className="txt-cuerpo-table">{data.role}</td>
+                <td className="txt-cuerpo-table">{data.state}</td>
+                <td className="txt-cuerpo-table">{data.number}</td>
+                <td className="txt-cuerpo-table">{data.email}</td>
+                <td className="txt-accion-table">
+                  <a>
+                    <AiIcons.AiTwotoneDelete />
+                  </a>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </Container>

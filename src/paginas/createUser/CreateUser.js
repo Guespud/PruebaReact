@@ -27,9 +27,25 @@ const CreateUSer = () => {
     console.log(inputs);
   };
 
+  const dataTable = () => {
+    return fire
+      .database()
+      .ref("/usuarios/")
+      .once("value")
+      .then(function (snapshot) {
+        console.log(snapshot.val());
+
+        var data = snapshot.val();
+      });
+  };
+
+ // const [tableData,setTableData] = useState(data)
+
   const handleSaveDb = () => {
     console.log("Se creo123");
-    fire.database().ref('usuarios').push(inputs);
+    fire.database().ref("usuarios").push(inputs);
+    handleClose();
+    dataTable();
   };
 
   return (
@@ -69,7 +85,9 @@ const CreateUSer = () => {
                     />
                   </Form.Group>
                   <Form.Group controlId="identification">
-                    <Form.Label className="txt-form">Identificacion(C.C)</Form.Label>
+                    <Form.Label className="txt-form">
+                      Identificacion(C.C)
+                    </Form.Label>
                     <Form.Control
                       name="identification"
                       type="number"
@@ -89,7 +107,7 @@ const CreateUSer = () => {
                 </Col>
                 <Col sm={6}>
                   <Form.Group controlId="state">
-                    <Form.Label className="txt-form" >Estado</Form.Label>
+                    <Form.Label className="txt-form">Estado</Form.Label>
                     <Form.Control
                       name="state"
                       type="text"
@@ -116,7 +134,7 @@ const CreateUSer = () => {
                     />
                   </Form.Group>
                   <Form.Group controlId="email">
-                    <Form.Label className="txt-form" >Email</Form.Label>
+                    <Form.Label className="txt-form">Email</Form.Label>
                     <Form.Control
                       name="email"
                       type="mail"
