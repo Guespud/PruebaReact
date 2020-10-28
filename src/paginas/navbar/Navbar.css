@@ -1,6 +1,6 @@
 .navbar {
     background-color: #060b26;
-    height: 80px;
+    min-height: 10vh;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -72,14 +72,14 @@
   }
 
   .prueba-txt{
-      color: white;
+      color: rgb(23, 45, 157);
       text-align: left;
       margin-left: -450px;
       margin-bottom: -10px;
   }
 
   .profile-txt{
-      color: white;
+      color: rgb(23, 45, 157);
       text-align: left;
       margin-right: -500px;
       margin-bottom: -10px; 

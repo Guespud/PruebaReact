@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import * as FaIcons from "react-icons/fa";
 import { Modal, Button, Form } from "react-bootstrap";
 import fire from "../../utils/firebase-config";
+import "./CreateUser.css";
 
 const CreateUSer = () => {
   let db = fire.firestore();
@@ -27,19 +29,21 @@ const CreateUSer = () => {
 
   const handleSaveDb = () =>{
     console.log('Se creo123')
-    const ref = db.collection("users");
+    const ref = db.collection("users").doc("prueba");
 
-    ref.push(inputs).then(() =>{
+    ref.set(inputs).then(() =>{
         console.log('Se creo')
     }).catch(error => console.log(error))
   }
 
   return (
     <>
-      <h2>Usuarios existentes </h2>
-      <Button variant="primary" onClick={handleShow}>
+
+      <h2 className ="txt-usuarios"><FaIcons.FaUsers /> &nbsp; Usuarios existentes </h2>
+      <Button className="btn-create" variant="primary" onClick={handleShow}>
         Crear
       </Button>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>

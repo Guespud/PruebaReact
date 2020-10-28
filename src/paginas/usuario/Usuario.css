@@ -1,0 +1,23 @@
+.container-config-user{
+    background: rgb(242, 242, 242);
+    min-width: 20vw;
+    min-height: 100vh;
+}
+
+.card-usuario{
+
+    background-color: white;
+    margin-top: -20px;
+    border-radius: 20px;
+    min-width: 20vw;
+    min-height: 100vh;
+
+}
+
+.list-user{
+    margin-top: 2rem;
+}
+
+.create-user{
+    margin-bottom: 2rem;
+}

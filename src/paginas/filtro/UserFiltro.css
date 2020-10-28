@@ -1,0 +1,42 @@
+.card-filtro {
+  background: white;
+  min-width: 20vw;
+  min-height: 100vh;
+  margin-bottom: 2rem;
+  margin-top: 13px;
+  border-radius: 20px;
+}
+
+.form-filtro {
+  min-width: 20vw;
+  min-height: 50vh;
+  margin-bottom: 1rem;
+}
+
+.input-filtro {
+}
+
+.input-txt-filtro {
+  font-size: 10px;
+  float: left;
+  margin-bottom: -0.5px;
+}
+
+.tittle-txt-filtro{
+    font-size: 15px;
+    color: rgb(23, 45, 157);
+}
+
+.btn-limpiar{
+float: left;
+margin-left: 50px;
+width: 100px;
+height: 40px;
+}
+
+.btn-filtrar{
+float: right;
+margin-right: 50px;
+width: 100px;
+height: 40px;
+}

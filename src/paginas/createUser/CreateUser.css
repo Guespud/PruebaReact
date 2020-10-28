@@ -1,0 +1,18 @@
+.txt-usuarios {
+  margin-top: 2rem;
+  color: rgb(23, 45, 157);
+  float: left;
+  margin-left: 30px;
+  margin-bottom: 3rem;
+  font-size: 20px;
+}
+
+.btn-create {
+  float: right;
+  background-color: rgb(23, 45, 157);
+  width: 100px;
+  height: 40px;
+  margin-right: 40px;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
