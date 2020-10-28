@@ -7,7 +7,7 @@ import * as RiIcons from "react-icons/ri";
 export const SidebarData = [
   {
     title: "OLSoftware",
-    path: "#",
+    path: "/administrativo",
     icon: <FaIcons.FaCircle />,
     cName: "nav-text",
   },

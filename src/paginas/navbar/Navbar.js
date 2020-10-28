@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import * as FaIcons from 'react-icons/fa';
-import * as FcIcons from 'react-icons/fc';
-import { Link } from 'react-router-dom';
-import { SidebarData } from './sidebar';
-import './Navbar.css';
-import { IconContext } from 'react-icons';
+import * as FcIcons from "react-icons/fc";
+import { Link } from "react-router-dom";
+import { SidebarData } from "./sidebar";
+import "./Navbar.css";
+import { IconContext } from "react-icons";
 
 const NavbarMenu = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -19,8 +18,15 @@ const NavbarMenu = () => {
             <FcIcons.FcList onClick={showSidebar} />
           </Link>
           <h2 className="prueba-txt">Prueba Front-end </h2>
-          <h2 className="prueba-txt-usuario"><FcIcons.FcBusinessman/>Alejandro Guespud diaz  </h2>  
-          <button className="btn btn-link btn-logout" ><FcIcons.FcImport/></button>
+          <h2 className="prueba-txt-usuario">
+            <FcIcons.FcBusinessman />
+            Alejandro Guespud diaz{" "}
+          </h2>
+          <Link to={`/`}>
+            <button className="btn btn-link btn-logout">
+              <FcIcons.FcImport />
+            </button>
+          </Link>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
