@@ -29,14 +29,7 @@ const CreateUSer = () => {
 
   const handleSaveDb = () => {
     console.log("Se creo123");
-    const ref = db.collection("users").doc("prueba");
-
-    ref
-      .set(inputs)
-      .then(() => {
-        console.log("Se creo");
-      })
-      .catch((error) => console.log(error));
+    fire.database().ref('usuarios').push(inputs);
   };
 
   return (
