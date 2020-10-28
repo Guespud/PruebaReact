@@ -20,7 +20,7 @@ const NavbarMenu = () => {
           <h2 className="prueba-txt">Prueba Front-end </h2>
           <h2 className="prueba-txt-usuario">
             <FcIcons.FcBusinessman />
-            Alejandro Guespud diaz{" "}
+            Alejandro Guespud diaz
           </h2>
           <Link to={`/`}>
             <button className="btn btn-link btn-logout">

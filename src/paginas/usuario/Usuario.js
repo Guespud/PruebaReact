@@ -12,9 +12,9 @@ const Usuario = () => {
   return (
     <div className="container-config-user">
       <NavbarMenu />
-      <Container>
+      <Container className="container-user-functions">
         <Row>
-          <Col sm={8}>
+          <Col sm={8} className="sm-8">
             <div className="card-usuario">
               <div className="create-user">
                 <CreateUSer />
@@ -24,7 +24,7 @@ const Usuario = () => {
               </div>
             </div>
           </Col>
-          <Col sm={4}>
+          <Col sm={4} className="sm-4">
               <div>
                   <UserFiltro/>
               </div>

@@ -1,3 +1,7 @@
+.container-filtro{
+  margin-right: -60px;
+}
+
 .card-filtro {
   background: white;
   min-width: 20vw;
