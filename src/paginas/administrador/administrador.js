@@ -14,7 +14,7 @@ const adminsitrador = (handleLogout) => {
       <div className="container-txt-prueba">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="txt-presentacion">
-          Bienvenidos a mi prueba de ReactJS
+          Bienvenidos a mi prueba con ReactJS
         </h1>
       </div>
     </section>
