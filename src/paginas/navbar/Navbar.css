@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #060b26;
+    background-color: white;
     min-height: 10vh;
     display: flex;
     justify-content: start;
@@ -72,17 +72,19 @@
   }
 
   .prueba-txt{
-      color: rgb(23, 45, 157);
+      color: rgb(21,97,255);
       text-align: left;
-      margin-left: -450px;
+      margin-left: -550px;
       margin-bottom: -10px;
   }
 
-  .profile-txt{
-      color: rgb(23, 45, 157);
+  .prueba-txt-usuario{
+      color:dimgrey;
       text-align: left;
-      margin-right: -500px;
-      margin-bottom: -10px; 
+      font-size: 20px;
+      margin-right: -550px;
+      margin-bottom: -7px;
+      margin-top: 1px; 
   }
 
   .btn-logout{

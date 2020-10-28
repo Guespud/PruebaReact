@@ -13,30 +13,27 @@
   margin-bottom: 1rem;
 }
 
-.input-filtro {
-}
-
 .input-txt-filtro {
   font-size: 10px;
   float: left;
   margin-bottom: -0.5px;
 }
 
-.tittle-txt-filtro{
-    font-size: 15px;
-    color: rgb(23, 45, 157);
+.tittle-txt-filtro {
+  font-size: 15px;
+  color: rgb(21,97,255);
 }
 
-.btn-limpiar{
-float: left;
-margin-left: 50px;
-width: 100px;
-height: 40px;
+.btn-limpiar {
+  float: left;
+  margin-left: 50px;
+  width: 100px;
+  height: 40px;
 }
 
-.btn-filtrar{
-float: right;
-margin-right: 50px;
-width: 100px;
-height: 40px;
+.btn-filtrar {
+  float: right;
+  margin-right: 50px;
+  width: 100px;
+  height: 40px;
 }

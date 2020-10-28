@@ -70,7 +70,7 @@ const UserFiltro = () => {
           <Button className="btn-limpiar" variant="success" type="submit">
             Limpiar
           </Button>
-          <Button className="btn-filtrar" variant="light" type="submit">
+          <Button className="btn-filtrar" variant="outline-success" type="submit">
             Filtrar
           </Button>
         </div>
