@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import Input from "./componentes/inputs /Inputs";
 import Tittle from "./componentes/tittles/Tittle";
 import fire from "../../utils/firebase-config";
-import Adminsitrador from "../administrador/administrador";
+import * as FcIcons from "react-icons/fc";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import adminsitrador from "../administrador/administrador";
 import { useHistory } from "react-router-dom";
-import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
 
 const Login = () => {
@@ -124,7 +122,9 @@ const Login = () => {
           <Tittle text="Inicio de sesión" />
           <form className="Login" onSubmit={handleLogin} >
             <div class="form-group">
-              <Input
+              <label className="icon-usuario"><FcIcons.FcBusinessman/></label>
+              <Input              
+              className="input-usuario"
                 attribute={{
                   id: "usuario",
                   name: "usuario",
@@ -135,6 +135,7 @@ const Login = () => {
               />
               <p className="errorMsg"> {emailError}</p>
               <Input
+              className="input-contrasena"
                 attribute={{
                   id: "contrasena",
                   name: "contrasena",

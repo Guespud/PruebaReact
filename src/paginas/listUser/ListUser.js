@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Table, Container, Button } from "react-bootstrap";
 import * as AiIcons from "react-icons/ai";
 import fire from "../../utils/firebase-config";
-import CreateUser from "../createUser/CreateUser";
 import "./ListUser.css";
 
 const ListUser = () => {
@@ -35,7 +34,7 @@ const ListUser = () => {
   }, []);
 
   return (
-    <Container>
+    <Container id="tableDataUsers">
       <Table responsive className="table-table">
         <thead>
           <tr className="tr-table">

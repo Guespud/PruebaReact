@@ -80,7 +80,7 @@ span {
 .prueba-txt {
   color: rgb(21, 97, 255);
   text-align: left;
-  margin-left: -550px;
+  margin-left: 5px;
   margin-bottom: -10px;
 }
 
@@ -88,7 +88,7 @@ span {
   color: dimgrey;
   text-align: left;
   font-size: 20px;
-  margin-right: -550px;
+  margin-left: 620px;
   margin-bottom: -7px;
   margin-top: 1px;
 }

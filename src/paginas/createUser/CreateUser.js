@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,ReactDOM,element } from "react";
 import * as FaIcons from "react-icons/fa";
 import { Modal, Button, Form, Row, Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import fire from "../../utils/firebase-config";
 import "./CreateUser.css";
 
@@ -27,25 +28,11 @@ const CreateUSer = () => {
     console.log(inputs);
   };
 
-  const dataTable = () => {
-    return fire
-      .database()
-      .ref("/usuarios/")
-      .once("value")
-      .then(function (snapshot) {
-        console.log(snapshot.val());
-
-        var data = snapshot.val();
-      });
-  };
-
- // const [tableData,setTableData] = useState(data)
-
   const handleSaveDb = () => {
     console.log("Se creo123");
     fire.database().ref("usuarios").push(inputs);
+    window.location.replace('/usuario');
     handleClose();
-    dataTable();
   };
 
   return (
